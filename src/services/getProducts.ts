@@ -1,14 +1,8 @@
-// export const getAllProducts = async () => {
-//     const responce = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-
-//     if(!responce.ok) {
-//         throw new Error('EROORO')
-//     }
-
-//     return await responce.json()
-// }
-
+import { Product } from '@/types/product';
+import { ProductsResponse } from '@/types/productResponse';
 import axios from 'axios';
+
+
 
 const API = axios.create({
   baseURL: 'https://dummyjson.com',
@@ -17,7 +11,7 @@ const API = axios.create({
   },
 });
 
-export const fetchProducts = async () => {
-  const response = await API.get('/products?limit=12');
+export const fetchProducts  = async () : Promise<Product[]> => {
+  const response = await API.get<ProductsResponse>('/products?limit=12');
   return response.data.products;
 };

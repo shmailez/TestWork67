@@ -8,7 +8,6 @@ export const UseProdust = createWithEqualityFn<StoreState>((set) => ({
     getProducts: async () => {
         set({loading: true})
         const products = await fetchProducts()
-        console.log(products)
         set({products, loading: false})
     }
 }))

@@ -5,7 +5,6 @@ import Link from "next/link"
 export const Navigation = () => {
 
     const session = useSession()
-    console.log('user', session?.data)
     
     return <>
         <nav>
