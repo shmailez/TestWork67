@@ -18,6 +18,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         alt={product.title}
         width={200}
         height={200}
+        priority={false}
+        loading="lazy"
       />
       <h4>{product.title}</h4>
       <p>{product.category}</p>
