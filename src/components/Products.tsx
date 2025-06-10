@@ -9,7 +9,7 @@ import { StoreState } from "../types/storeState"
 
 export default function Products() {
 
-     const [products, loading, getProducts, error] = UseProdust((state : StoreState )=> 
+    const [products, loading, getProducts, error] = UseProdust((state : StoreState )=> 
             [state.products, state.loading, state.getProducts, state.error],
             shallow
     )
@@ -20,11 +20,10 @@ export default function Products() {
 
     return <>
         <div className={styles.products}>
-            {loading && <h3>Loading!</h3>}
-
+            {loading && <h3>Loading...</h3>}
             {error && (
                 <p className={styles.error}>
-                    Что-то пошло не так: {error}
+                    Something went wrong: {error}
                 </p>
                 )}
             {!loading && !error && (<>{products.map((product : Product) => (

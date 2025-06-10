@@ -17,15 +17,15 @@ export const fetchProducts = async (): Promise<Product[]> => {
     if (axios.isAxiosError(error)) {
       if (error.response) {
         throw new Error(
-          error.response.data?.message || 'Ошибка при загрузке товаров с сервера.'
+          error.response.data?.message || 'Error loading products from the server.'
         );
       } else if (error.request) {
-        throw new Error('Сервер не отвечает. Проверьте интернет-соединение.');
+        throw new Error('The server is not responding. Check your internet connection.');
       } else {
-        throw new Error(`Ошибка запроса: ${error.message}`);
+        throw new Error(`Request error: ${error.message}`);
       }
     } else {
-      throw new Error('Произошла неизвестная ошибка при загрузке товаров.');
+      throw new Error('An unknown error occurred while loading products.');
     }
   }
 };

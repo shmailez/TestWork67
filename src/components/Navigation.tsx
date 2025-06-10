@@ -14,7 +14,7 @@ export const Navigation = () => {
                     </li>) : (<li>
                         <Link href='/api/auth/signin'>Sign In</Link>
                     </li>)}
-                {session?.data ? <li>Logged as {session?.data?.user?.email}</li> : ''}
+                {session?.data ? <li>Hello {session?.data?.user?.name}</li> : ''}
             </ul>
         </nav>
     </>

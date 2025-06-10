@@ -16,7 +16,7 @@ export default function SignInForm() {
         const password = formData.get('password')?.toString().trim() || '';
 
         if (email.length < 3 || password.length < 3) {
-            setError('Email и пароль должны быть не короче 3 символов.');
+            setError('Email and password must be at least 3 characters long.');
             return;
         }
 
@@ -26,13 +26,10 @@ export default function SignInForm() {
             redirect: false
         })
 
-        console.log(res)
-
         if (res && !res.error) {
             router.push("/");
           } else {
-            setError('Неверное имя пользователя или пароль.');
-            console.log(res);
+            setError('Incorrect username or password.');
           }
     }
     return <>
